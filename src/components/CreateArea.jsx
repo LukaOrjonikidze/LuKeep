@@ -3,6 +3,7 @@ import AddIcon from "@mui/icons-material/Add";
 import Fab from "@mui/material/Fab";
 import Zoom from "@mui/material/Zoom";
 import Alert from "@mui/material/Alert";
+import Grow from "@mui/material/Grow";
 
 function CreateArea(props) {
   const [note, setNote] = useState({
@@ -60,7 +61,10 @@ function CreateArea(props) {
             <AddIcon />
           </Fab>
         </Zoom>
-        {alertError === "" ? null : <Alert  severity="warning">{alertError}</Alert>}
+        { alertError !== "" ?
+          <Grow direction="up" in={alertError !== ""} >
+          <Alert  severity="warning">{alertError}</Alert>
+        </Grow> : null }
       </form>
     </div>
   );
